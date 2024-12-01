@@ -10,6 +10,7 @@ import {
   MdPeople,
   MdOutlineSettings,
   MdHelpCenter,
+  MdLogout,
 } from "react-icons/md";
 import MenuLink from "./menuLink/menuLink";
 
@@ -79,7 +80,21 @@ const menuItems = [
 const Sidebar = () => {
   return (
     <div className={styles.container}>
-      <ul>
+      <div className={styles.user}>
+        <img
+          className={styles.userImage}
+          src="/noavatar.png"
+          alt=""
+          width="50"
+          height="50"
+        />
+        <div className={styles.userDetail}>
+          <span className={styles.username}>John Doe</span>
+          <span className={styles.userTitle}>Administrator</span>
+        </div>
+      </div>
+
+      <ul className={styles.list}>
         {menuItems.map((cat) => (
           <li key={cat.title}>
             <span className={styles.cat}>{cat.title}</span>
@@ -89,6 +104,11 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      <button className={styles.logout}>
+        <MdLogout />
+        Logout
+      </button>
     </div>
   );
 };
